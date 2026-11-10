@@ -56,6 +56,9 @@ Slugs are kebab-case even when the repository uses underscores
   date.
 - Submit `https://thepaneb.github.io/sitemap.xml` in Search Console/Bing
   Webmaster Tools under the **root** property, not the project subpath.
+- Google Search Console HTML verification files (`google<token>.html`) live at
+  the repository root and are **not** pages: the checker validates their exact
+  content and excludes them from the sitemap.
 
 ## Validate
 
