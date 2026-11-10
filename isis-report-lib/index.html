@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>isis-report-lib — Tabular PDF reports from Python</title>
+    <meta
+      name="description"
+      content="Python library for tabular PDF reports with customizable hierarchical layouts, Jinja2 rendering and Playwright PDF. Sync and async APIs, JSON or .toon input."
+    />
+    <link rel="canonical" href="https://thepaneb.github.io/isis-report-lib/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0f766e" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gil Cleber Barboza" />
+    <meta property="og:title" content="isis-report-lib — Tabular PDF reports from Python" />
+    <meta
+      property="og:description"
+      content="Hierarchical layouts, Jinja2 rendering and Playwright PDF. Sync and async APIs, JSON or .toon input."
+    />
+    <meta property="og:url" content="https://thepaneb.github.io/isis-report-lib/" />
+    <meta property="og:image" content="https://thepaneb.github.io/assets/og/isis-report-lib.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="isis-report-lib — tabular PDF reports from Python" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="isis-report-lib — Tabular PDF reports from Python" />
+    <meta
+      name="twitter:description"
+      content="Hierarchical layouts, Jinja2 rendering and Playwright PDF. Sync and async APIs, JSON or .toon input."
+    />
+    <meta name="twitter:image" content="https://thepaneb.github.io/assets/og/isis-report-lib.png" />
+    <meta name="twitter:image:alt" content="isis-report-lib — tabular PDF reports from Python" />
+
+    <link rel="stylesheet" href="/assets/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "isis-report-lib",
+        "description": "Python library for tabular PDF reports with customizable hierarchical layouts, Jinja2 rendering and Playwright PDF.",
+        "version": "0.4.0",
+        "programmingLanguage": "Python",
+        "codeRepository": "https://github.com/thepaneb/isis-report-lib",
+        "url": "https://thepaneb.github.io/isis-report-lib/",
+        "license": "https://opensource.org/licenses/MIT",
+        "author": {
+          "@type": "Person",
+          "name": "Gil Cleber Barboza"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Projects",
+            "item": "https://thepaneb.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "isis-report-lib",
+            "item": "https://thepaneb.github.io/isis-report-lib/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-isis-lib">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/assets/avatar.jpg" alt="" width="34" height="34" />
+          Gil Cleber Barboza
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Projects</a>
+          <a href="https://github.com/thepaneb/isis-report-lib" rel="noopener">GitHub</a>
+          <a href="https://pypi.org/project/isis-report-lib/" rel="noopener">PyPI</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <p class="breadcrumb"><a href="/">Projects</a><span>/</span>isis-report-lib</p>
+          <span class="eyebrow">Python library · PyPI · MIT</span>
+          <h1>Tabular PDF reports, from Python.</h1>
+          <p class="lead">
+            Hierarchical layouts, Jinja2 rendering and Playwright PDF. One function call from data
+            to a print-ready document — <strong>sync or async</strong>, from a Python dict or a
+            compact <code>.toon</code> file.
+          </p>
+          <ul class="chips" aria-label="Project facts">
+            <li class="chip">Python</li>
+            <li class="chip">MIT</li>
+            <li class="chip">PyPI v0.4.0</li>
+            <li class="chip">Jinja2</li>
+            <li class="chip">Playwright</li>
+          </ul>
+          <p class="actions">
+            <a class="btn primary" href="https://pypi.org/project/isis-report-lib/" rel="noopener"
+              >Install from PyPI</a
+            >
+            <a class="btn ghost" href="https://github.com/thepaneb/isis-report-lib" rel="noopener"
+              >View on GitHub</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="what">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="what">What it does</h2>
+            <p>From nested records to a polished PDF.</p>
+          </div>
+          <ul class="features">
+            <li class="feature">
+              <h3>Hierarchical layouts</h3>
+              <p>
+                Nested groups become sections; flat child lists render as tables. The document
+                adapts to the data instead of rigid bands.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>JSON or <code>.toon</code></h3>
+              <p>
+                Pass a <code>dict</code> / <code>ReportPayload</code> or a compact indented
+                <code>.toon</code> document with the same structure.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Jinja2 templates</h3>
+              <p>
+                Templates are bundled in the package. Point <code>template_dir</code> at your own
+                directory to override the layout or reuse its macros.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Playwright PDF</h3>
+              <p>
+                Chromium renders the final document. The sync API opens and closes the browser per
+                call; the async API reuses a shared pool.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Sync and async</h3>
+              <p>
+                <code>generate_pdf</code>, <code>agenerate_pdf</code> and
+                <code>render_html</code> for the intermediate HTML — no browser needed for the
+                latter.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Locale-aware masks</h3>
+              <p>
+                <code>str</code>, <code>int</code>, <code>float</code>, <code>date</code>,
+                <code>percent</code>, <code>currency</code> and <code>bool</code> — via Babel/CLDR,
+                with <code>pt-BR</code>, <code>en-US</code> and more.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="start">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="start">Quick start</h2>
+            <p>Python package + Chromium for PDF rendering.</p>
+          </div>
+          <pre><code>pip install isis-report-lib
+playwright install chromium</code></pre>
+          <pre><code>from isis_report_lib import generate_pdf
+
+payload = {
+    "meta": {"title": "Sales Order", "sub_title": "2024", "mode": "exact"},
+    "layout": {
+        "company": {"label": "Company", "format_mask": "str", "alignment": "left"},
+        "orders": {
+            "order": {"label": "Code", "format_mask": "int", "alignment": "right"},
+            "total": {"label": "Total", "format_mask": "float", "alignment": "right"},
+        },
+    },
+    "data": [
+        {"company": "ACME", "orders": [{"order": 750, "total": 4000}]},
+    ],
+}
+
+pdf = generate_pdf(payload)
+open("report.pdf", "wb").write(pdf)</code></pre>
+          <pre><code># Async
+from isis_report_lib import agenerate_pdf
+pdf = await agenerate_pdf(payload)
+
+# Intermediate HTML, without a browser
+html = render_html(payload)</code></pre>
+          <pre><code># CLI
+isis-report generate examples/sales_order.toon -o report.pdf
+isis-report render examples/sales_order.toon -o report.html</code></pre>
+          <p class="note">
+            After upgrading Playwright, reinstall the browser: each Playwright version pins a
+            specific Chromium build.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="payload">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="payload">Payload at a glance</h2>
+            <p>Declarative behavior, not a rigid template.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Field</th><th>What it controls</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>meta</code></td>
+                  <td>
+                    Title, subtitle, mode, locale, currency, accent color, page size/orientation and
+                    <code>printed_at</code> (auto-filled).
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>layout</code></td>
+                  <td>
+                    Hierarchical field definitions — labels, masks, alignment, visibility. Omit to
+                    infer from the data.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>data</code></td>
+                  <td>Raw records or the template format with nested groups.</td>
+                </tr>
+                <tr>
+                  <td><code>aggregate</code></td>
+                  <td>
+                    <code>sum</code>, <code>count</code>, <code>avg</code>, <code>min</code>,
+                    <code>max</code> — group footers, detail footers and grand summaries.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>$print_when</code></td>
+                  <td>Keep only rows matching a field condition.</td>
+                </tr>
+                <tr>
+                  <td><code>$order_by</code></td>
+                  <td>Sort rows by one or more fields, with nulls last.</td>
+                </tr>
+                <tr>
+                  <td><code>visible</code> / <code>visible_when</code></td>
+                  <td>Hide a column, conditionally.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="links">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="links">Links</h2>
+          </div>
+          <ul class="link-grid">
+            <li>
+              <a href="https://pypi.org/project/isis-report-lib/" rel="noopener"
+                >PyPI package<span>pip install isis-report-lib</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/isis-report-lib" rel="noopener"
+                >Source &amp; examples<span>github.com/thepaneb/isis-report-lib</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/isis-report-lib/releases" rel="noopener"
+                >Releases<span>Changelog and published versions</span></a
+              >
+            </li>
+            <li>
+              <a href="/isis-report/">isis_report<span>The HTTP/MCP service built on this library</span></a>
+            </li>
+          </ul>
+          <p class="note">
+            Templates are code: only load <code>template_dir</code> from sources you trust. Report
+            data is never executed as template code — it is interpolated only.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© 2026 Gil Cleber Barboza · <a href="/">All projects</a></p>
+        <nav class="footer-links" aria-label="Project links">
+          <a href="https://github.com/thepaneb/isis-report-lib" rel="noopener">GitHub</a>
+          <a href="https://pypi.org/project/isis-report-lib/" rel="noopener">PyPI</a>
+          <a href="https://www.linkedin.com/in/gilcleber/" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

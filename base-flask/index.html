@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>base_flask — Flask + Dev Containers workspace</title>
+    <meta
+      name="description"
+      content="A ready-to-use Flask workspace on VS Code Dev Containers: Python 3.14, debugging preconfigured, concurrency examples and nothing to install locally besides Docker."
+    />
+    <link rel="canonical" href="https://thepaneb.github.io/base-flask/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0b7285" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gil Cleber Barboza" />
+    <meta property="og:title" content="base_flask — Flask + Dev Containers workspace" />
+    <meta
+      property="og:description"
+      content="Python 3.14, F5 debugging, concurrency examples and zero local setup. A Flask template that runs in a Dev Container."
+    />
+    <meta property="og:url" content="https://thepaneb.github.io/base-flask/" />
+    <meta property="og:image" content="https://thepaneb.github.io/assets/og/base-flask.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="base_flask — Flask + Dev Containers workspace" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="base_flask — Flask + Dev Containers workspace" />
+    <meta
+      name="twitter:description"
+      content="Python 3.14, F5 debugging, concurrency examples and zero local setup. A Flask template that runs in a Dev Container."
+    />
+    <meta name="twitter:image" content="https://thepaneb.github.io/assets/og/base-flask.png" />
+    <meta name="twitter:image:alt" content="base_flask — Flask + Dev Containers workspace" />
+
+    <link rel="stylesheet" href="/assets/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "base_flask",
+        "description": "A ready-to-use Flask workspace on VS Code Dev Containers with Python 3.14 and debugging preconfigured.",
+        "programmingLanguage": "Python",
+        "codeRepository": "https://github.com/thepaneb/base_flask",
+        "url": "https://thepaneb.github.io/base-flask/",
+        "license": "https://opensource.org/licenses/MIT",
+        "author": {
+          "@type": "Person",
+          "name": "Gil Cleber Barboza"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Projects",
+            "item": "https://thepaneb.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "base_flask",
+            "item": "https://thepaneb.github.io/base-flask/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-flask">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/assets/avatar.jpg" alt="" width="34" height="34" />
+          Gil Cleber Barboza
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Projects</a>
+          <a href="https://github.com/thepaneb/base_flask" rel="noopener">GitHub</a>
+          <a href="https://github.com/new?template_name=base_flask&amp;template_owner=thepaneb" rel="noopener"
+            >Use template</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <p class="breadcrumb"><a href="/">Projects</a><span>/</span>base_flask</p>
+          <span class="eyebrow">Dev Container template · Python</span>
+          <h1>A Flask workspace that just runs.</h1>
+          <p class="lead">
+            Python 3.14, debugging preconfigured and <strong>nothing to install on your machine</strong>
+            besides Docker. Open the folder in VS Code, accept the container, press F5.
+          </p>
+          <ul class="chips" aria-label="Project facts">
+            <li class="chip">Python 3.14</li>
+            <li class="chip">Flask 3.x</li>
+            <li class="chip">Dev Containers</li>
+            <li class="chip">MIT</li>
+          </ul>
+          <p class="actions">
+            <a
+              class="btn primary"
+              href="https://github.com/new?template_name=base_flask&amp;template_owner=thepaneb"
+              rel="noopener"
+              >Use this template</a
+            >
+            <a class="btn ghost" href="https://github.com/thepaneb/base_flask" rel="noopener"
+              >View on GitHub</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="what">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="what">Why use this template</h2>
+            <p>Zero local setup, debugger ready.</p>
+          </div>
+          <ul class="features">
+            <li class="feature">
+              <h3>Zero local setup</h3>
+              <p>Python, pip and the dependencies live inside the container. Only Docker is required.</p>
+            </li>
+            <li class="feature">
+              <h3>Python 3.14 + extensions</h3>
+              <p>Pylance, Ruff, Black, pylint, pytest and debugpy are already installed.</p>
+            </li>
+            <li class="feature">
+              <h3>Debug ready</h3>
+              <p>Press <code>F5</code> and the app starts on port <code>40000</code> with breakpoints enabled.</p>
+            </li>
+            <li class="feature">
+              <h3>Predictable time zone</h3>
+              <p><code>America/Sao_Paulo</code> is set for reproducible dates in logs and reports.</p>
+            </li>
+            <li class="feature">
+              <h3>Concurrency examples</h3>
+              <p>
+                The same download workload in sequential, threaded, <code>httpx</code> async and
+                <code>aiohttp</code> async versions.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Small, honest sample</h3>
+              <p>
+                A minimal Flask app and a requirements file. No opinionated structure to undo before
+                adding yours.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="start">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="start">Quick start</h2>
+            <p>Four steps, no local Python install.</p>
+          </div>
+          <pre><code>1. Click "Use this template" → "Create a new repository"
+2. Clone your new repository and open the folder in VS Code
+3. Accept "Reopen in Container" when prompted
+4. Press F5 and open http://127.0.0.1:40000</code></pre>
+          <p class="note">
+            Requirements: Docker running, VS Code and the Dev Containers extension. To use it
+            without creating a repository: <code>git clone https://github.com/thepaneb/base_flask.git</code>.
+          </p>
+          <pre><code>.
+├── .devcontainer/devcontainer.json   # Python 3.14 image, extensions, port 40000
+├── .vscode/
+│   ├── extensions.json               # recommends the Dev Containers extension
+│   └── launch.json                   # "Flask Debugger" (debugpy)
+├── app/
+│   ├── __init__.py                   # Flask app and the sample route
+│   ├── requirements.txt              # Flask + requests
+│   ├── sync.py                       # sequential I/O
+│   ├── thread.py                     # threaded I/O
+│   ├── httpx.py                      # async I/O with httpx
+│   └── aiohttp.py                    # async I/O with aiohttp
+├── dev/dependencies.sh               # upgrades pip and installs requirements
+└── base_flask.code-workspace</code></pre>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="details">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="details">Good to know</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Action</th><th>How</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Start with the debugger</td><td><code>F5</code> → Flask Debugger</td></tr>
+                <tr><td>URL</td><td><code>http://127.0.0.1:40000</code></td></tr>
+                <tr><td>Reinstall dependencies</td><td><code>bash dev/dependencies.sh</code></td></tr>
+                <tr><td>Add async examples</td><td>Add <code>httpx</code> / <code>aiohttp</code> and rerun the script</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            The launch profile uses <code>--no-debugger --no-reload</code> on purpose: Flask's own
+            debugger and reloader conflict with debugpy breakpoints.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="links">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="links">Links</h2>
+          </div>
+          <ul class="link-grid">
+            <li>
+              <a
+                href="https://github.com/new?template_name=base_flask&amp;template_owner=thepaneb"
+                rel="noopener"
+                >Use this template<span>Create a repository from the template</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/base_flask" rel="noopener"
+                >Source<span>github.com/thepaneb/base_flask</span></a
+              >
+            </li>
+            <li>
+              <a href="/base-robyn/"
+                >base_robyn<span>The same idea for a Robyn workspace</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© 2026 Gil Cleber Barboza · <a href="/">All projects</a></p>
+        <nav class="footer-links" aria-label="Project links">
+          <a href="https://github.com/thepaneb/base_flask" rel="noopener">GitHub</a>
+          <a href="/base-robyn/">base_robyn</a>
+          <a href="https://www.linkedin.com/in/gilcleber/" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
