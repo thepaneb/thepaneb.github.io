@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>base_robyn — Robyn + Dev Containers workspace</title>
+    <meta
+      name="description"
+      content="A ready-to-use Robyn workspace on VS Code Dev Containers: Python 3.14 + uv, modular discovery, OpenAPI/ReDoc and a slim Docker build."
+    />
+    <link rel="canonical" href="https://thepaneb.github.io/base-robyn/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#5b21b6" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gil Cleber Barboza" />
+    <meta property="og:title" content="base_robyn — Robyn + Dev Containers workspace" />
+    <meta
+      property="og:description"
+      content="Python 3.14 + uv, modular discovery, OpenAPI/ReDoc and a slim Docker build. A Robyn template that runs in a Dev Container."
+    />
+    <meta property="og:url" content="https://thepaneb.github.io/base-robyn/" />
+    <meta property="og:image" content="https://thepaneb.github.io/assets/og/base-robyn.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="base_robyn — Robyn + Dev Containers workspace" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="base_robyn — Robyn + Dev Containers workspace" />
+    <meta
+      name="twitter:description"
+      content="Python 3.14 + uv, modular discovery, OpenAPI/ReDoc and a slim Docker build. A Robyn template that runs in a Dev Container."
+    />
+    <meta name="twitter:image" content="https://thepaneb.github.io/assets/og/base-robyn.png" />
+    <meta name="twitter:image:alt" content="base_robyn — Robyn + Dev Containers workspace" />
+
+    <link rel="stylesheet" href="/assets/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "base_robyn",
+        "description": "A ready-to-use Robyn workspace on VS Code Dev Containers with Python 3.14, uv, OpenAPI/ReDoc and Docker.",
+        "programmingLanguage": "Python",
+        "codeRepository": "https://github.com/thepaneb/base_robyn",
+        "url": "https://thepaneb.github.io/base-robyn/",
+        "license": "https://opensource.org/licenses/MIT",
+        "author": {
+          "@type": "Person",
+          "name": "Gil Cleber Barboza"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Projects",
+            "item": "https://thepaneb.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "base_robyn",
+            "item": "https://thepaneb.github.io/base-robyn/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-robyn">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/assets/avatar.jpg" alt="" width="34" height="34" />
+          Gil Cleber Barboza
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Projects</a>
+          <a href="https://github.com/thepaneb/base_robyn" rel="noopener">GitHub</a>
+          <a href="https://github.com/new?template_name=base_robyn&amp;template_owner=thepaneb" rel="noopener"
+            >Use template</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <p class="breadcrumb"><a href="/">Projects</a><span>/</span>base_robyn</p>
+          <span class="eyebrow">Dev Container template · Python</span>
+          <h1>A Robyn workspace with batteries included.</h1>
+          <p class="lead">
+            Python 3.14 + <strong>uv</strong>, modular discovery, OpenAPI/ReDoc and a slim Docker
+            build. Open the folder in VS Code, accept the container, press F5.
+          </p>
+          <ul class="chips" aria-label="Project facts">
+            <li class="chip">Python 3.14</li>
+            <li class="chip">Robyn 0.x</li>
+            <li class="chip">uv</li>
+            <li class="chip">Docker</li>
+            <li class="chip">MIT</li>
+          </ul>
+          <p class="actions">
+            <a
+              class="btn primary"
+              href="https://github.com/new?template_name=base_robyn&amp;template_owner=thepaneb"
+              rel="noopener"
+              >Use this template</a
+            >
+            <a class="btn ghost" href="https://github.com/thepaneb/base_robyn" rel="noopener"
+              >View on GitHub</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="what">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="what">Why use this template</h2>
+            <p>Structure that stays out of your way.</p>
+          </div>
+          <ul class="features">
+            <li class="feature">
+              <h3>uv for everything</h3>
+              <p>
+                <code>uv sync</code> creates the virtualenv and installs from the committed
+                <code>uv.lock</code>.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Modular by design</h3>
+              <p>
+                Every folder in <code>app/modules</code> is discovered at startup; each module owns
+                its router, routes, models and services.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>OpenAPI + ReDoc</h3>
+              <p>Routes are registered with OpenAPI metadata, and ReDoc is served by the app.</p>
+            </li>
+            <li class="feature">
+              <h3>Docker included</h3>
+              <p>A slim, locked, <code>--no-dev</code> image and a Compose file for deployment.</p>
+            </li>
+            <li class="feature">
+              <h3>Ruff + pytest</h3>
+              <p>Linting, formatting and tests are configured in <code>pyproject.toml</code>.</p>
+            </li>
+            <li class="feature">
+              <h3>Debug ready</h3>
+              <p><code>F5</code> → <strong>Debug - DEV</strong> on port <code>40001</code>, inside the container.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="start">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="start">Quick start</h2>
+            <p>Four steps, no local Python install.</p>
+          </div>
+          <pre><code>1. Click "Use this template" → "Create a new repository"
+2. Clone your new repository and open the folder in VS Code
+3. Accept "Reopen in Container" when prompted
+4. Press F5 → "Debug - DEV" and open http://127.0.0.1:40001</code></pre>
+          <p class="note">
+            Requirements: Docker running, VS Code and the Dev Containers extension.
+          </p>
+          <pre><code>.
+├── .devcontainer/devcontainer.json   # Python 3.14 + uv, extensions, port 40001
+├── app/
+│   ├── api/__init__.py               # Robyn app + OpenAPI metadata
+│   ├── extensions/                   # logger + routes loader
+│   ├── modules/                      # hello_world, redoc, status
+│   ├── constants.py                  # BASE_PATH
+│   └── run.py                        # module discovery + entry point
+├── Dockerfile
+├── dockercompose.yml
+├── pyproject.toml
+└── uv.lock</code></pre>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="routes">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="routes">Routes and run modes</h2>
+            <p>Small surface, easy to extend.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Method</th><th>Path</th><th>What it does</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>GET</td><td><code>/app/status</code></td><td>Health payload.</td></tr>
+                <tr><td>POST</td><td><code>/app/hello_world</code></td><td>Returns <code>Hello, world!</code>.</td></tr>
+                <tr><td>GET</td><td><code>/redoc</code></td><td>Serves the ReDoc page.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrap" style="margin-top: 1rem">
+            <table>
+              <thead>
+                <tr><th>Action</th><th>How</th><th>URL</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Dev container</td><td><code>F5</code> → Debug - DEV / FAST</td><td><code>127.0.0.1:40001</code></td></tr>
+                <tr><td>Terminal</td><td><code>ROBYN_PORT=40001 uv run python app/run.py</code></td><td><code>127.0.0.1:40001</code></td></tr>
+                <tr><td>Docker Compose</td><td><code>docker compose -f dockercompose.yml up --build</code></td><td><code>localhost:50001</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            <code>BASE_PATH</code> in <code>app/constants.py</code> controls the <code>/app</code>
+            prefix. The app reads <code>ROBYN_HOST</code>, <code>ROBYN_PORT</code>,
+            <code>ROBYN_LOG_LEVEL</code>, <code>ROBYN_PROCESSES</code> and
+            <code>ROBYN_WORKERS</code> from the environment.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="links">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="links">Links</h2>
+          </div>
+          <ul class="link-grid">
+            <li>
+              <a
+                href="https://github.com/new?template_name=base_robyn&amp;template_owner=thepaneb"
+                rel="noopener"
+                >Use this template<span>Create a repository from the template</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/base_robyn" rel="noopener"
+                >Source<span>github.com/thepaneb/base_robyn</span></a
+              >
+            </li>
+            <li>
+              <a href="/base-flask/"
+                >base_flask<span>The same idea for a Flask workspace</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© 2026 Gil Cleber Barboza · <a href="/">All projects</a></p>
+        <nav class="footer-links" aria-label="Project links">
+          <a href="https://github.com/thepaneb/base_robyn" rel="noopener">GitHub</a>
+          <a href="/base-flask/">base_flask</a>
+          <a href="https://www.linkedin.com/in/gilcleber/" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

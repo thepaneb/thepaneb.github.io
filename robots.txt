@@ -1,4 +1,9 @@
+# https://thepaneb.github.io/robots.txt
+# This is the authoritative robots.txt for the host; files under project
+# subpaths (for example /vscode-utplsql/robots.txt) are ignored by Googlebot.
+
 User-agent: *
 Allow: /
+Disallow: /404.html
 
-Sitemap: https://thepaneb.github.io/vscode-utplsql/sitemap.xml
+Sitemap: https://thepaneb.github.io/sitemap.xml

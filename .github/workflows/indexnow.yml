@@ -1,0 +1,36 @@
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    name: Ping IndexNow after Pages deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Wait for Pages and submit URLs
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          HUB="https://thepaneb.github.io/"
+          KEY="ba3b4edc519041308f1dc227c70163f1"
+
+          for _ in $(seq 1 20); do
+            body=$(curl -sS --max-time 20 "$HUB" || true)
+            if printf '%s' "$body" | grep -q 'Developer tools for Oracle'; then
+              break
+            fi
+            sleep 15
+          done
+
+          urls='"https://thepaneb.github.io/","https://thepaneb.github.io/isis-report-lib/","https://thepaneb.github.io/isis-report/","https://thepaneb.github.io/base-flask/","https://thepaneb.github.io/base-robyn/"'
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"thepaneb.github.io\",\"key\":\"$KEY\",\"keyLocation\":\"${HUB}${KEY}.txt\",\"urlList\":[$urls]}" \
+            -o /dev/null -w 'IndexNow: %{http_code}\n'
