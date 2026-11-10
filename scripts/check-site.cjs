@@ -28,7 +28,9 @@ function walkHtml(dir, out = []) {
     if (SKIP_DIRS.has(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) walkHtml(full, out);
-    else if (entry.name.endsWith('.html')) out.push(full);
+    else if (entry.name.endsWith('.html') && !/^google[0-9a-f]+\.html$/i.test(entry.name)) {
+      out.push(full);
+    }
   }
   return out;
 }
@@ -105,6 +107,14 @@ for (const file of [
 const keyFile = `${INDEXNOW_KEY}.txt`;
 if (exists(keyFile) && read(keyFile).trim() !== INDEXNOW_KEY) {
   fail(`${keyFile}: conteúdo da chave IndexNow inválido`);
+}
+
+// Google Search Console HTML verification files live at the host root and are
+// not pages; they are excluded from the sitemap and from the page checks.
+for (const file of fs.readdirSync(ROOT).filter((name) => /^google[0-9a-f]+\.html$/i.test(name))) {
+  const text = read(file).trim();
+  const expected = `google-site-verification: ${file}`;
+  if (text !== expected) fail(`${file}: conteúdo de verificação do Google inválido`);
 }
 
 // ── pages ─────────────────────────────────────────────────────────────
