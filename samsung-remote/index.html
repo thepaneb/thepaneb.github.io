@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Samsung Remote — control Samsung TVs from desktop and Android</title>
+    <meta
+      name="description"
+      content="Desktop and Android app to control Samsung (Tizen) TVs over the local network, with pairing, real app lists and SmartThings as a fallback for standby mode."
+    />
+    <link rel="canonical" href="https://thepaneb.github.io/samsung-remote/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#1428a0" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gil Cleber Barboza" />
+    <meta property="og:title" content="Samsung Remote — control Samsung TVs from desktop and Android" />
+    <meta
+      property="og:description"
+      content="A Tauri 2 app for Samsung (Tizen) TVs: local-network pairing, real app lists, the Guide key and SmartThings as a fallback."
+    />
+    <meta property="og:url" content="https://thepaneb.github.io/samsung-remote/" />
+    <meta property="og:image" content="https://thepaneb.github.io/assets/og/samsung-remote.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="Samsung Remote — control Samsung TVs from desktop and Android" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Samsung Remote — control Samsung TVs from desktop and Android" />
+    <meta
+      name="twitter:description"
+      content="A Tauri 2 app for Samsung (Tizen) TVs: local-network pairing, real app lists, the Guide key and SmartThings as a fallback."
+    />
+    <meta name="twitter:image" content="https://thepaneb.github.io/assets/og/samsung-remote.png" />
+    <meta name="twitter:image:alt" content="Samsung Remote — control Samsung TVs from desktop and Android" />
+
+    <link rel="stylesheet" href="/assets/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Samsung Remote",
+        "description": "Desktop and Android app to control Samsung (Tizen) TVs over the local network, with SmartThings as a fallback for standby and cloud commands.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows, macOS, Linux, Android",
+        "softwareVersion": "0.1.0",
+        "url": "https://thepaneb.github.io/samsung-remote/",
+        "codeRepository": "https://github.com/thepaneb/samsung-remote",
+        "license": "https://opensource.org/licenses/MIT",
+        "author": {
+          "@type": "Person",
+          "name": "Gil Cleber Barboza"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Projects",
+            "item": "https://thepaneb.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Samsung Remote",
+            "item": "https://thepaneb.github.io/samsung-remote/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-samsung">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/assets/avatar.jpg" alt="" width="34" height="34" />
+          Gil Cleber Barboza
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Projects</a>
+          <a href="https://github.com/thepaneb/samsung-remote" rel="noopener">GitHub</a>
+          <a href="https://github.com/thepaneb/samsung-remote#readme" rel="noopener">README</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <p class="breadcrumb"><a href="/">Projects</a><span>/</span>Samsung Remote</p>
+          <span class="eyebrow">Desktop &amp; Android app · Tauri 2 + Rust</span>
+          <h1>Your Samsung TV, from your desktop and phone.</h1>
+          <p class="lead">
+            An unofficial Tauri 2 app that talks to Samsung (Tizen) TVs over your
+            <strong>local network</strong> — pairing, real app lists, the Guide key and fast
+            controls. <strong>SmartThings</strong> is the fallback for waking the TV from standby.
+          </p>
+          <ul class="chips" aria-label="Project facts">
+            <li class="chip">Tauri 2</li>
+            <li class="chip">Rust</li>
+            <li class="chip">TypeScript</li>
+            <li class="chip">Android</li>
+            <li class="chip">v0.1.0</li>
+            <li class="chip">MIT</li>
+          </ul>
+          <p class="actions">
+            <a class="btn primary" href="https://github.com/thepaneb/samsung-remote" rel="noopener"
+              >View on GitHub</a
+            >
+            <a class="btn ghost" href="https://github.com/thepaneb/samsung-remote#readme" rel="noopener"
+              >Read the setup guide</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="what">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="what">What it does</h2>
+            <p>Local first, cloud when the TV is asleep.</p>
+          </div>
+          <ul class="features">
+            <li class="feature">
+              <h3>Direct local connection</h3>
+              <p>
+                Talks to the TV over a secure WebSocket on port <code>8002</code>. Pairing happens
+                with a pop-up on the TV, and the token stays on your device.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Finds your TV</h3>
+              <p>
+                SSDP discovery lists the TVs on the network with name and model; you can also type
+                the IP manually.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Real app list</h3>
+              <p>
+                Loads the apps installed on your model and lets you add them as shortcuts, with
+                reorder and remove.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Full remote</h3>
+              <p>
+                Power, volume, mute, D-pad, Guide, channels, inputs, playback, PVR, ambient mode and
+                the numeric keypad.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Type and search</h3>
+              <p>
+                Send text to the field in focus on the TV, or search directly from the app — no
+                on-screen keyboard marathon.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>SmartThings fallback</h3>
+              <p>
+                Add a personal SmartThings token to wake the TV from standby and send cloud commands
+                when the local connection is not available.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Android build</h3>
+              <p>
+                The same Tauri 2 codebase compiles for Android. The README covers the SDK, NDK and
+                APK signing steps.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Local by default</h3>
+              <p>
+                Pairing and SmartThings tokens are stored on the device. Control traffic goes to the
+                TV on your LAN; the cloud is only the fallback.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="start">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="start">Quick start</h2>
+            <p>Node 22+, Rust stable and the platform build tools.</p>
+          </div>
+          <pre><code>npm install
+npm run tauri dev</code></pre>
+          <p class="note">
+            Build a desktop installer with <code>npm run tauri build</code>; the artifacts land in
+            <code>src-tauri/target/release/bundle</code>.
+          </p>
+          <pre><code># Android (Tauri 2 mobile)
+npm run tauri android init
+npm run tauri android build -- --apk --target aarch64</code></pre>
+          <p class="note">
+            The APK is unsigned by default; the README has the <code>zipalign</code> and
+            <code>apksigner</code> steps for sideloading.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="how">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="how">How it works</h2>
+            <p>Two transports, one remote.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Path</th><th>What it uses</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Discovery</td>
+                  <td>
+                    SSDP <code>M-SEARCH</code> on <code>239.255.255.250:1900</code>; name and model
+                    from <code>http://&lt;ip&gt;:8000/api/v2/</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Local control</td>
+                  <td>
+                    <code>wss://&lt;ip&gt;:8002/api/v2/channels/samsung.remote.control</code> with
+                    <code>KEY_*</code> commands and a pairing token saved in <code>local.json</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Apps and text</td>
+                  <td>
+                    <code>ed.installedApp.get</code> for the real app list; <code>SendInputString</code>
+                    + <code>SendInputEnd</code> for typing.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cloud fallback</td>
+                  <td>
+                    SmartThings API for power from standby, volume, inputs, channels and modes; the
+                    token stays on the device.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="links">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="links">Links</h2>
+          </div>
+          <ul class="link-grid">
+            <li>
+              <a href="https://github.com/thepaneb/samsung-remote" rel="noopener"
+                >Source &amp; setup<span>github.com/thepaneb/samsung-remote</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/samsung-remote#readme" rel="noopener"
+                >README<span>Pairing, SmartThings token and Android build</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/samsung-remote/issues" rel="noopener"
+                >Issues<span>Report a TV model or a command that misbehaves</span></a
+              >
+            </li>
+          </ul>
+          <p class="note">
+            Unofficial project, not affiliated with Samsung. The SmartThings and pairing tokens are
+            stored only on your device.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© 2026 Gil Cleber Barboza · <a href="/">All projects</a></p>
+        <nav class="footer-links" aria-label="Project links">
+          <a href="https://github.com/thepaneb/samsung-remote" rel="noopener">GitHub</a>
+          <a href="https://github.com/thepaneb/samsung-remote#readme" rel="noopener">README</a>
+          <a href="https://www.linkedin.com/in/gilcleber/" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

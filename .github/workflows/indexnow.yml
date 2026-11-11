@@ -29,7 +29,7 @@ jobs:
             sleep 15
           done
 
-          urls='"https://thepaneb.github.io/","https://thepaneb.github.io/isis-report-lib/","https://thepaneb.github.io/isis-report/","https://thepaneb.github.io/base-flask/","https://thepaneb.github.io/base-robyn/"'
+          urls='"https://thepaneb.github.io/","https://thepaneb.github.io/isis-report-lib/","https://thepaneb.github.io/isis-report/","https://thepaneb.github.io/samsung-remote/","https://thepaneb.github.io/base-flask/","https://thepaneb.github.io/base-robyn/"'
           curl -sS -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             -d "{\"host\":\"thepaneb.github.io\",\"key\":\"$KEY\",\"keyLocation\":\"${HUB}${KEY}.txt\",\"urlList\":[$urls]}" \
