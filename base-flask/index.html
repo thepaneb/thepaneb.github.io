@@ -7,7 +7,7 @@
     <title>base_flask — Flask + Dev Containers workspace</title>
     <meta
       name="description"
-      content="A ready-to-use Flask workspace on VS Code Dev Containers: Python 3.14, F5 debugging, concurrency examples and nothing to install locally besides Docker."
+      content="A ready-to-use Flask workspace on VS Code Dev Containers: Python 3.15, blueprints, uv-managed dependencies, F5 debugging and no local setup beyond Docker."
     />
     <link rel="canonical" href="https://thepaneb.github.io/base-flask/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -23,7 +23,7 @@
     <meta property="og:title" content="base_flask — Flask + Dev Containers workspace" />
     <meta
       property="og:description"
-      content="Python 3.14, F5 debugging, concurrency examples and zero local setup. A Flask template that runs in a Dev Container."
+      content="Python 3.15, blueprints, uv and F5 debugging inside a Dev Container — nothing to install locally besides Docker."
     />
     <meta property="og:url" content="https://thepaneb.github.io/base-flask/" />
     <meta property="og:image" content="https://thepaneb.github.io/assets/og/base-flask.png" />
@@ -35,7 +35,7 @@
     <meta name="twitter:title" content="base_flask — Flask + Dev Containers workspace" />
     <meta
       name="twitter:description"
-      content="Python 3.14, F5 debugging, concurrency examples and zero local setup. A Flask template that runs in a Dev Container."
+      content="Python 3.15, blueprints, uv and F5 debugging inside a Dev Container — nothing to install locally besides Docker."
     />
     <meta name="twitter:image" content="https://thepaneb.github.io/assets/og/base-flask.png" />
     <meta name="twitter:image:alt" content="base_flask — Flask + Dev Containers workspace" />
@@ -47,7 +47,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareSourceCode",
         "name": "base_flask",
-        "description": "A ready-to-use Flask workspace on VS Code Dev Containers with Python 3.14 and debugging preconfigured.",
+        "description": "A ready-to-use Flask workspace on VS Code Dev Containers with Python 3.15, blueprints, uv and debugging preconfigured.",
         "programmingLanguage": "Python",
         "codeRepository": "https://github.com/thepaneb/base_flask",
         "url": "https://thepaneb.github.io/base-flask/",
@@ -106,12 +106,14 @@
           <span class="eyebrow">Dev Container template · Python</span>
           <h1>A Flask workspace that just runs.</h1>
           <p class="lead">
-            Python 3.14, debugging preconfigured and <strong>nothing to install on your machine</strong>
-            besides Docker. Open the folder in VS Code, accept the container, press F5.
+            Python 3.15, blueprints and <strong>uv</strong> — with debugging preconfigured and
+            <strong>nothing to install on your machine</strong> besides Docker. Open the folder in
+            VS Code, accept the container, press F5.
           </p>
           <ul class="chips" aria-label="Project facts">
-            <li class="chip">Python 3.14</li>
+            <li class="chip">Python 3.15</li>
             <li class="chip">Flask 3.x</li>
+            <li class="chip">uv</li>
             <li class="chip">Dev Containers</li>
             <li class="chip">MIT</li>
           </ul>
@@ -138,11 +140,28 @@
           <ul class="features">
             <li class="feature">
               <h3>Zero local setup</h3>
-              <p>Python, pip and the dependencies live inside the container. Only Docker is required.</p>
+              <p>Python and the dependencies live inside the container. Only Docker is required.</p>
             </li>
             <li class="feature">
-              <h3>Python 3.14 + extensions</h3>
-              <p>Pylance, Ruff, Black, pylint, pytest and debugpy are already installed.</p>
+              <h3>Python 3.15 + extensions</h3>
+              <p>
+                Debian 13 (<code>trixie</code>) with Pylance, Ruff, Black, pylint, pytest and
+                debugpy already installed.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Blueprint structure</h3>
+              <p>
+                Routes live in <code>app/modules/&lt;name&gt;/</code>, ready to grow without
+                refactoring.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>uv everywhere</h3>
+              <p>
+                <code>pyproject.toml</code> + <code>uv.lock</code>, with reproducible installs via
+                <code>uv sync --frozen</code>.
+              </p>
             </li>
             <li class="feature">
               <h3>Debug ready</h3>
@@ -151,20 +170,6 @@
             <li class="feature">
               <h3>Predictable time zone</h3>
               <p><code>America/Sao_Paulo</code> is set for reproducible dates in logs and reports.</p>
-            </li>
-            <li class="feature">
-              <h3>Concurrency examples</h3>
-              <p>
-                The same download workload in sequential, threaded, <code>httpx</code> async and
-                <code>aiohttp</code> async versions.
-              </p>
-            </li>
-            <li class="feature">
-              <h3>Small, honest sample</h3>
-              <p>
-                A minimal Flask app and a requirements file. No opinionated structure to undo before
-                adding yours.
-              </p>
             </li>
           </ul>
         </div>
@@ -185,26 +190,59 @@
             without creating a repository: <code>git clone https://github.com/thepaneb/base_flask.git</code>.
           </p>
           <pre><code>.
-├── .devcontainer/devcontainer.json   # Python 3.14 image, extensions, port 40000
+├── .devcontainer/devcontainer.json   # Python 3.15-trixie image, uv feature, port 40000
 ├── .vscode/
 │   ├── extensions.json               # recommends the Dev Containers extension
 │   └── launch.json                   # "Flask Debugger" (debugpy)
 ├── app/
-│   ├── __init__.py                   # Flask app and the sample route
-│   ├── requirements.txt              # Flask + requests
-│   ├── sync.py                       # sequential I/O
-│   ├── thread.py                     # threaded I/O
-│   ├── httpx.py                      # async I/O with httpx
-│   └── aiohttp.py                    # async I/O with aiohttp
-├── dev/dependencies.sh               # upgrades pip and installs requirements
-└── base_flask.code-workspace</code></pre>
+│   ├── __init__.py                   # creates the Flask app, registers blueprints
+│   └── modules/
+│       ├── hello_world/__init__.py   # GET /, /hello-world, /hello_world
+│       └── status/__init__.py        # GET /status (health-check)
+├── dev/dependencies.sh               # uv sync --frozen (container postCreate)
+├── pyproject.toml / uv.lock          # dependencies (Flask, requests, tzdata)
+├── .python-version                   # 3.15.2
+└── AGENTS.md                         # guide for coding agents</code></pre>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="endpoints">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="endpoints">Endpoints</h2>
+            <p>A small, working surface to build on.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Route</th><th>Response</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>GET /</code></td>
+                  <td><code>{"message": "hello world", "timestamp": ...}</code></td>
+                </tr>
+                <tr>
+                  <td><code>GET /hello-world</code></td>
+                  <td>Same response (hyphen and underscore aliases).</td>
+                </tr>
+                <tr>
+                  <td><code>GET /status</code></td>
+                  <td>
+                    Health JSON with Python version and dependency status
+                    (<code>200</code>/<code>502</code>/<code>503</code>).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       <section class="section" aria-labelledby="details">
         <div class="wrap">
           <div class="section-head">
-            <h2 id="details">Good to know</h2>
+            <h2 id="details">Run and debug</h2>
           </div>
           <div class="table-wrap">
             <table>
@@ -214,11 +252,13 @@
               <tbody>
                 <tr><td>Start with the debugger</td><td><code>F5</code> → Flask Debugger</td></tr>
                 <tr><td>URL</td><td><code>http://127.0.0.1:40000</code></td></tr>
-                <tr><td>Reinstall dependencies</td><td><code>bash dev/dependencies.sh</code></td></tr>
-                <tr><td>Add async examples</td><td>Add <code>httpx</code> / <code>aiohttp</code> and rerun the script</td></tr>
+                <tr><td>Reinstall dependencies</td><td><code>uv sync --group dev</code> (or <code>bash dev/dependencies.sh</code>)</td></tr>
+                <tr><td>Run without VS Code</td><td><code>uv run flask --app app run --host 127.0.0.1 --port 40000</code></td></tr>
               </tbody>
             </table>
           </div>
+          <pre><code># Quick check without starting a server
+uv run python -c "import app; c=app.app.test_client(); print(c.get('/').get_json()); print(c.get('/status').status_code)"</code></pre>
           <p class="note">
             The launch profile uses <code>--no-debugger --no-reload</code> on purpose: Flask's own
             debugger and reloader conflict with debugpy breakpoints.
