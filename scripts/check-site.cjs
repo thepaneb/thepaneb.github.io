@@ -94,11 +94,15 @@ function checkXmlDate(value, label) {
 
 for (const file of [
   '.nojekyll',
+  'favicon.ico',
   'robots.txt',
   'sitemap.xml',
   'sitemap-hub.xml',
   'assets/styles.css',
   'assets/favicon.svg',
+  'assets/favicon-32.png',
+  'assets/apple-touch-icon.png',
+  'assets/icon-192.png',
   `${INDEXNOW_KEY}.txt`,
 ]) {
   if (!exists(file)) fail(`arquivo obrigatório ausente: ${file}`);
@@ -140,6 +144,14 @@ for (const page of pages) {
 
   if (!/<html\s+lang="en"/i.test(html)) fail(`${fileRel}: html lang != en`);
   if (!/<h1\b/i.test(html)) fail(`${fileRel}: sem h1`);
+
+  if (!html.includes('href="/favicon.ico"')) fail(`${fileRel}: sem favicon.ico`);
+  if (!html.includes('href="/assets/favicon-32.png"')) {
+    fail(`${fileRel}: sem favicon PNG 32x32`);
+  }
+  if (!html.includes('href="/assets/apple-touch-icon.png"')) {
+    fail(`${fileRel}: sem apple-touch-icon`);
+  }
 
   if (is404) {
     if (!/name="robots"[^>]*content="noindex"/i.test(html) && !/content="noindex"[^>]*name="robots"/i.test(html)) {
