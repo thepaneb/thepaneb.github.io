@@ -54,6 +54,11 @@
   --accent-ink: #ffffff;
   --accent-soft: #efe9fb;
 }
+.theme-samsung {
+  --accent: #1428a0;
+  --accent-ink: #ffffff;
+  --accent-soft: #e8eaf7;
+}
 
 @media (prefers-color-scheme: dark) {
   .theme-utplsql {
@@ -80,6 +85,11 @@
     --accent: #c4b5fd;
     --accent-ink: #0b0f14;
     --accent-soft: #241a3d;
+  }
+  .theme-samsung {
+    --accent: #8fb0ff;
+    --accent-ink: #0b0f14;
+    --accent-soft: #141a33;
   }
 }
 
@@ -429,7 +439,7 @@ h3 {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
 
@@ -470,6 +480,9 @@ h3 {
 .card.robyn {
   --card-accent: #5b21b6;
 }
+.card.samsung {
+  --card-accent: #1428a0;
+}
 
 @media (prefers-color-scheme: dark) {
   .card.utplsql {
@@ -486,6 +499,9 @@ h3 {
   }
   .card.robyn {
     --card-accent: #c4b5fd;
+  }
+  .card.samsung {
+    --card-accent: #8fb0ff;
   }
 }
 
