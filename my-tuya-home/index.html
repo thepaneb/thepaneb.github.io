@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>My Tuya Home — local-first smart plug dashboard</title>
+    <meta
+      name="description"
+      content="A local-first dashboard for Tuya/SmartLife smart plugs with live power, voltage, current and kWh, cascade totals, history charts and a native Flet app."
+    />
+    <link rel="canonical" href="https://thepaneb.github.io/my-tuya-home/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#c2410c" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gil Cleber Barboza" />
+    <meta property="og:title" content="My Tuya Home — local-first smart plug dashboard" />
+    <meta
+      property="og:description"
+      content="Live power, voltage, current and kWh for Tuya/SmartLife plugs — LAN-first, with cascade totals, history charts and a native Flet app."
+    />
+    <meta property="og:url" content="https://thepaneb.github.io/my-tuya-home/" />
+    <meta property="og:image" content="https://thepaneb.github.io/assets/og/my-tuya-home.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="My Tuya Home — local-first smart plug dashboard" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="My Tuya Home — local-first smart plug dashboard" />
+    <meta
+      name="twitter:description"
+      content="Live power, voltage, current and kWh for Tuya/SmartLife plugs — LAN-first, with cascade totals, history charts and a native Flet app."
+    />
+    <meta name="twitter:image" content="https://thepaneb.github.io/assets/og/my-tuya-home.png" />
+    <meta name="twitter:image:alt" content="My Tuya Home — local-first smart plug dashboard" />
+
+    <link rel="stylesheet" href="/assets/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "My Tuya Home",
+        "description": "A local-first dashboard for Tuya/SmartLife smart plugs with live energy metering, cascade totals, history charts and a native Flet app.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+        "url": "https://thepaneb.github.io/my-tuya-home/",
+        "codeRepository": "https://github.com/thepaneb/my-tuya-home",
+        "license": "https://opensource.org/licenses/MIT",
+        "author": {
+          "@type": "Person",
+          "name": "Gil Cleber Barboza"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Projects",
+            "item": "https://thepaneb.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "My Tuya Home",
+            "item": "https://thepaneb.github.io/my-tuya-home/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-tuya">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/assets/avatar.jpg" alt="" width="34" height="34" />
+          Gil Cleber Barboza
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Projects</a>
+          <a href="https://github.com/thepaneb/my-tuya-home" rel="noopener">GitHub</a>
+          <a href="https://github.com/thepaneb/my-tuya-home#readme" rel="noopener">README</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <p class="breadcrumb"><a href="/">Projects</a><span>/</span>My Tuya Home</p>
+          <span class="eyebrow">Self-hosted app · Python · Tuya</span>
+          <h1>Your smart plugs, without the cloud detour.</h1>
+          <p class="lead">
+            A clean, self-hosted dashboard for <strong>Tuya/SmartLife</strong> plugs with energy
+            metering. It talks to the plugs on your <strong>LAN first</strong> and uses Tuya Cloud
+            only as a fallback — web and native app on the same Python core.
+          </p>
+          <ul class="chips" aria-label="Project facts">
+            <li class="chip">Python</li>
+            <li class="chip">Flask</li>
+            <li class="chip">Flet</li>
+            <li class="chip">Tuya</li>
+            <li class="chip">SQLite</li>
+            <li class="chip">MIT</li>
+          </ul>
+          <p class="actions">
+            <a class="btn primary" href="https://github.com/thepaneb/my-tuya-home" rel="noopener"
+              >View on GitHub</a
+            >
+            <a class="btn ghost" href="https://github.com/thepaneb/my-tuya-home#readme" rel="noopener"
+              >Read the setup guide</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="screenshot">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="screenshot">See it in action</h2>
+            <p>Three plugs, cascade totals and live energy.</p>
+          </div>
+          <img
+            src="/assets/my-tuya-home-screenshot.png"
+            alt="My Tuya Home dashboard showing three smart plugs, live power in watts, voltage, current, kWh and cascade totals"
+            width="3440"
+            height="1287"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="what">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="what">What it does</h2>
+            <p>Local first, cloud when you are away.</p>
+          </div>
+          <ul class="features">
+            <li class="feature">
+              <h3>Live panel</h3>
+              <p>
+                A card per plug: switch, status, measured W vs own W, V, A, accumulated kWh, origin
+                (local/cloud), cascade, countdown, protections and logs.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Charts that stay</h3>
+              <p>
+                Consumption minute by minute (2h), hourly (24h), daily (7d/30d) and monthly (12m),
+                using the same cascade language.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Physical cascade</h3>
+              <p>
+                Mark a plug as a child of another. The app shows measured vs own watts and sums only
+                the roots — no double counting.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Auto, local or cloud</h3>
+              <p>
+                LAN first with cloud fallback, local-only on the same Wi-Fi, or cloud-only when you
+                are away. Choose per request.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>In-app setup</h3>
+              <p>
+                Save Tuya credentials, discover devices, scan the network, import 7 days of history,
+                edit plugs, set the cascade and test a reading.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>History that lasts</h3>
+              <p>
+                SQLite keeps raw samples for 60 days and hourly/daily aggregates forever; cloud
+                backfill fills the first 7 days.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Native Flet app</h3>
+              <p>
+                The same Python core and visual language as a desktop window — build for Windows,
+                Android, macOS, Linux or iOS.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Local-first privacy</h3>
+              <p>
+                Secrets (<code>devices.json</code>, <code>cloud.json</code>,
+                <code>history.db</code>) are gitignored; control traffic goes to the plugs on your
+                LAN.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="modes">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="modes">Connection modes</h2>
+            <p>One app, three paths to the plug.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Mode</th><th>When to use</th><th>What you get</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>auto</code> (default)</td>
+                  <td>Everyday use</td>
+                  <td>Tries LAN first, falls back to the cloud.</td>
+                </tr>
+                <tr>
+                  <td><code>local</code></td>
+                  <td>Same Wi-Fi, no internet</td>
+                  <td>Millisecond responses, no quota; LAN only.</td>
+                </tr>
+                <tr>
+                  <td><code>cloud</code></td>
+                  <td>Away from home</td>
+                  <td>Remote status and commands, device info, functions and logs.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            Diagnostics: <code>GET /api/modes</code> and <code>GET /api/health</code>. The mode can
+            be selected per request with <code>?mode=auto|local|cloud</code>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="start">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="start">Quick start</h2>
+            <p>Python, requirements and a browser.</p>
+          </div>
+          <pre><code>pip install -r requirements.txt
+
+# Web dashboard
+python app.py            # http://localhost:5000
+
+# Native window (Flet)
+python app_flet.py</code></pre>
+          <p class="note">
+            From your phone on the same Wi-Fi, open <code>http://&lt;IP-do-PC&gt;:5000</code>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="setup">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="setup">First setup</h2>
+            <p>Three steps, then the app remembers.</p>
+          </div>
+          <pre><code>1. Create a project at https://platform.tuya.com/ (IoT Core, free)
+   and link your SmartLife account under Devices → Link App Account.
+2. Open /setup: save Access ID/Secret → discover devices →
+   scan the network → adjust names/versions → save the plugs.
+3. If the link says "Sem permissão", follow the checklist in COMO_USAR.md.</code></pre>
+          <p class="note">
+            The app speaks directly to the plugs on the LAN; the cloud is the fallback and the
+            source for remote info/logs and the initial 7-day backfill.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="native">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="native">Build the native app</h2>
+            <p>Flet packages the same core for each platform.</p>
+          </div>
+          <pre><code>flet build windows      # Windows installer
+flet build apk          # Android
+flet build macos        # macOS
+flet build linux        # Linux
+flet build ipa          # iOS (on a Mac)</code></pre>
+          <p class="note">
+            See <a href="https://github.com/thepaneb/my-tuya-home/blob/main/PUBLISH.md">PUBLISH.md</a>
+            for the full build notes.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="links">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="links">Links</h2>
+          </div>
+          <ul class="link-grid">
+            <li>
+              <a href="https://github.com/thepaneb/my-tuya-home" rel="noopener"
+                >Source &amp; setup<span>github.com/thepaneb/my-tuya-home</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/my-tuya-home/blob/main/FEATURES.md" rel="noopener"
+                >FEATURES.md<span>Mode × feature matrix and the cascade rules</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/my-tuya-home/blob/main/COMO_USAR.md" rel="noopener"
+                >COMO_USAR.md<span>Step-by-step setup and Tuya troubleshooting</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/my-tuya-home/blob/main/PUBLISH.md" rel="noopener"
+                >PUBLISH.md<span>Native builds for each platform</span></a
+              >
+            </li>
+          </ul>
+          <p class="note">
+            Personal, self-hosted project. Tuya/SmartLife credentials and device keys stay on your
+            machine and are gitignored.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© 2026 Gil Cleber Barboza · <a href="/">All projects</a></p>
+        <nav class="footer-links" aria-label="Project links">
+          <a href="https://github.com/thepaneb/my-tuya-home" rel="noopener">GitHub</a>
+          <a href="https://github.com/thepaneb/my-tuya-home#readme" rel="noopener">README</a>
+          <a href="https://www.linkedin.com/in/gilcleber/" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

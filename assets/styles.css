@@ -59,6 +59,11 @@
   --accent-ink: #ffffff;
   --accent-soft: #e8eaf7;
 }
+.theme-tuya {
+  --accent: #c2410c;
+  --accent-ink: #ffffff;
+  --accent-soft: #fff1e8;
+}
 
 @media (prefers-color-scheme: dark) {
   .theme-utplsql {
@@ -90,6 +95,11 @@
     --accent: #8fb0ff;
     --accent-ink: #0b0f14;
     --accent-soft: #141a33;
+  }
+  .theme-tuya {
+    --accent: #ffb27a;
+    --accent-ink: #0b0f14;
+    --accent-soft: #2b1a10;
   }
 }
 
@@ -483,6 +493,9 @@ h3 {
 .card.samsung {
   --card-accent: #1428a0;
 }
+.card.tuya {
+  --card-accent: #c2410c;
+}
 
 @media (prefers-color-scheme: dark) {
   .card.utplsql {
@@ -502,6 +515,9 @@ h3 {
   }
   .card.samsung {
     --card-accent: #8fb0ff;
+  }
+  .card.tuya {
+    --card-accent: #ffb27a;
   }
 }
 
