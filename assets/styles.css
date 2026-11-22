@@ -64,6 +64,11 @@
   --accent-ink: #ffffff;
   --accent-soft: #fff1e8;
 }
+.theme-videogen {
+  --accent: #7c3aed;
+  --accent-ink: #ffffff;
+  --accent-soft: #f0e9fd;
+}
 
 @media (prefers-color-scheme: dark) {
   .theme-utplsql {
@@ -100,6 +105,11 @@
     --accent: #ffb27a;
     --accent-ink: #0b0f14;
     --accent-soft: #2b1a10;
+  }
+  .theme-videogen {
+    --accent: #c4b5fd;
+    --accent-ink: #0b0f14;
+    --accent-soft: #241a3d;
   }
 }
 
@@ -496,6 +506,9 @@ h3 {
 .card.tuya {
   --card-accent: #c2410c;
 }
+.card.videogen {
+  --card-accent: #7c3aed;
+}
 
 @media (prefers-color-scheme: dark) {
   .card.utplsql {
@@ -518,6 +531,9 @@ h3 {
   }
   .card.tuya {
     --card-accent: #ffb27a;
+  }
+  .card.videogen {
+    --card-accent: #c4b5fd;
   }
 }
 
