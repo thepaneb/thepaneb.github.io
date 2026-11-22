@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Pipeline do isis_report</title>
+  <desc id="desc">Fluxo: cliente envia JSON, .toon ou MCP; a API Robyn chama o BaseReportService, que executa obter dados, tratar dados, gerar HTML com Jinja2 e gerar PDF com Playwright; a resposta é um PDF binário via HTTP ou base64 via MCP.</desc>
+
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" />
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <rect width="1200" height="420" rx="16" fill="#0d1117" />
+  <rect width="1200" height="420" rx="16" fill="url(#grid)" />
+
+  <text x="48" y="58" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#e6edf3">isis_report</text>
+  <text x="48" y="88" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" fill="#8b949e">JSON / .toon / MCP → PDF pipeline</text>
+
+  <g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+    <!-- Cliente -->
+    <rect x="48" y="150" width="170" height="150" rx="14" fill="#161b22" stroke="#30363d" />
+    <text x="68" y="182" font-size="18" font-weight="700" fill="#e6edf3">Cliente</text>
+    <g font-family="'DejaVu Sans Mono', 'SFMono-Regular', Consolas, monospace" font-size="15" fill="#8b949e">
+      <text x="68" y="218">JSON</text>
+      <text x="68" y="244">.toon</text>
+      <text x="68" y="270">MCP</text>
+    </g>
+
+    <!-- API Robyn -->
+    <rect x="258" y="150" width="200" height="150" rx="14" fill="#161b22" stroke="#30363d" />
+    <text x="278" y="182" font-size="18" font-weight="700" fill="#e6edf3">API Robyn</text>
+    <g font-family="'DejaVu Sans Mono', 'SFMono-Regular', Consolas, monospace" font-size="13" fill="#8b949e">
+      <text x="278" y="218">/app/tabular-json</text>
+      <text x="278" y="244">/app/tabular-toon</text>
+      <text x="278" y="270">/mcp</text>
+    </g>
+
+    <!-- BaseReportService -->
+    <rect x="498" y="120" width="300" height="210" rx="14" fill="#161b22" stroke="#10b981" stroke-opacity="0.45" />
+    <text x="518" y="152" font-size="18" font-weight="700" fill="#e6edf3">BaseReportService</text>
+    <text x="778" y="152" font-size="11" text-anchor="end" letter-spacing="1.5" fill="#10b981">PIPELINE</text>
+    <g font-family="'DejaVu Sans Mono', 'SFMono-Regular', Consolas, monospace" font-size="15">
+      <text x="518" y="190" fill="#10b981">1</text>
+      <text x="540" y="190" fill="#c9d1d9">_obter_dados</text>
+      <text x="518" y="224" fill="#10b981">2</text>
+      <text x="540" y="224" fill="#c9d1d9">_tratar_dados</text>
+      <text x="518" y="258" fill="#10b981">3</text>
+      <text x="540" y="258" fill="#c9d1d9">_gerar_html</text>
+      <text x="518" y="292" fill="#10b981">4</text>
+      <text x="540" y="292" fill="#c9d1d9">_gerar_pdf</text>
+    </g>
+
+    <!-- Render -->
+    <rect x="838" y="150" width="160" height="150" rx="14" fill="#161b22" stroke="#30363d" />
+    <text x="858" y="182" font-size="18" font-weight="700" fill="#e6edf3">Jinja2</text>
+    <text x="858" y="212" font-size="15" fill="#8b949e">+ Playwright</text>
+    <text x="858" y="248" font-size="13" fill="#8b949e">HTML → PDF</text>
+
+    <!-- PDF -->
+    <rect x="1038" y="150" width="114" height="150" rx="14" fill="#161b22" stroke="#30363d" />
+    <text x="1066" y="208" font-size="28" font-weight="700" fill="#10b981">PDF</text>
+    <text x="1060" y="240" font-size="13" fill="#8b949e">resposta</text>
+
+    <!-- Setas -->
+    <g stroke="#10b981" stroke-width="2.5" fill="none">
+      <line x1="220" y1="225" x2="250" y2="225" marker-end="url(#arrow)" />
+      <line x1="460" y1="225" x2="490" y2="225" marker-end="url(#arrow)" />
+      <line x1="800" y1="225" x2="830" y2="225" marker-end="url(#arrow)" />
+      <line x1="1000" y1="225" x2="1030" y2="225" marker-end="url(#arrow)" />
+    </g>
+  </g>
+
+  <text x="48" y="382" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">HTTP devolve o PDF binário; o MCP devolve o PDF em base64 dentro de um JSON-RPC.</text>
+</svg>
