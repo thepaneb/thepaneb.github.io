@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>paneb-videogen — short videos from prompts and images</title>
+    <meta
+      name="description"
+      content="Android app plus Node/TypeScript API to generate short videos from prompts and images, with swappable providers: free mock, Kling cloud and local ComfyUI + LTX."
+    />
+    <link rel="canonical" href="https://thepaneb.github.io/paneb-videogen/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#7c3aed" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gil Cleber Barboza" />
+    <meta property="og:title" content="paneb-videogen — short videos from prompts and images" />
+    <meta
+      property="og:description"
+      content="Android (Kotlin/Compose) app plus Node/TypeScript API for short AI videos — mock, Kling cloud and ComfyUI + LTX providers, queue, SQLite and signed links."
+    />
+    <meta property="og:url" content="https://thepaneb.github.io/paneb-videogen/" />
+    <meta property="og:image" content="https://thepaneb.github.io/assets/og/paneb-videogen.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="paneb-videogen — short videos from prompts and images" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="paneb-videogen — short videos from prompts and images" />
+    <meta
+      name="twitter:description"
+      content="Android (Kotlin/Compose) app plus Node/TypeScript API for short AI videos — mock, Kling cloud and ComfyUI + LTX providers, queue, SQLite and signed links."
+    />
+    <meta name="twitter:image" content="https://thepaneb.github.io/assets/og/paneb-videogen.png" />
+    <meta name="twitter:image:alt" content="paneb-videogen — short videos from prompts and images" />
+
+    <link rel="stylesheet" href="/assets/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "paneb-videogen",
+        "description": "Android app plus Node/TypeScript API to generate short videos from prompts and images, with swappable providers (free mock, Kling cloud, local ComfyUI + LTX), job queue, SQLite and signed video links.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Android, Windows, macOS, Linux",
+        "url": "https://thepaneb.github.io/paneb-videogen/",
+        "codeRepository": "https://github.com/thepaneb/paneb-videogen",
+        "author": {
+          "@type": "Person",
+          "name": "Gil Cleber Barboza"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Projects",
+            "item": "https://thepaneb.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "paneb-videogen",
+            "item": "https://thepaneb.github.io/paneb-videogen/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="theme-videogen">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/">
+          <img src="/assets/avatar.jpg" alt="" width="34" height="34" />
+          Gil Cleber Barboza
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">Projects</a>
+          <a href="https://github.com/thepaneb/paneb-videogen" rel="noopener">GitHub</a>
+          <a href="https://github.com/thepaneb/paneb-videogen#readme" rel="noopener">README</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap">
+          <p class="breadcrumb"><a href="/">Projects</a><span>/</span>paneb-videogen</p>
+          <span class="eyebrow">Android app + API · Kotlin · TypeScript</span>
+          <h1>Short AI videos, from prompt to player.</h1>
+          <p class="lead">
+            An Android (<strong>Kotlin/Compose</strong>) app plus a <strong>Node/TypeScript</strong>
+            API that turns prompts and images into short videos. Providers are
+            swappable: a <strong>free mock</strong> for development, <strong>Kling</strong> in the
+            cloud, or <strong>ComfyUI + LTX</strong> on your own GPU. The provider key never
+            leaves your API — the app talks to it with a per-user key and signed video links.
+          </p>
+          <ul class="chips" aria-label="Project facts">
+            <li class="chip">Kotlin</li>
+            <li class="chip">TypeScript</li>
+            <li class="chip">Android</li>
+            <li class="chip">Node API</li>
+            <li class="chip">Prototype</li>
+          </ul>
+          <p class="actions">
+            <a class="btn primary" href="https://github.com/thepaneb/paneb-videogen" rel="noopener"
+              >View on GitHub</a
+            >
+            <a class="btn ghost" href="https://github.com/thepaneb/paneb-videogen#readme" rel="noopener"
+              >Read the setup guide</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="what">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="what">What it does</h2>
+            <p>Create on the phone, render where it makes sense.</p>
+          </div>
+          <ul class="features">
+            <li class="feature">
+              <h3>Create, history, player</h3>
+              <p>
+                The Android app creates jobs from prompts and images, follows the queue and plays
+                the finished videos.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Swappable providers</h3>
+              <p>
+                One API, three backends: <code>mock</code> (free, finishes in ~15 s),
+                <code>kling</code> (prepaid cloud packages) and <code>comfyui</code> (LTX on your
+                own NVIDIA GPU).
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Queue, SQLite, worker</h3>
+              <p>
+                Express API with a job queue, SQLite persistence via
+                <code>node:sqlite</code>, background worker, video storage and an OpenAPI contract
+                (<code>backend/openapi.yaml</code>).
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Signed links, isolated users</h3>
+              <p>
+                Per-user app keys, signed video URLs, seed-based repeat/variations and tested
+                isolation between users.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Prompt enhancement</h3>
+              <p>
+                Optional prompt enhancer before dispatch — see
+                <code>docs/prompt-enhancement.md</code> for the details and limits.
+              </p>
+            </li>
+            <li class="feature">
+              <h3>Documented and tested</h3>
+              <p>
+                Architecture, data model, API reference and provider guides under
+                <code>docs/</code>; <code>npm test</code> covers model, security, migration,
+                OpenAPI contract, metrics and clean shutdown.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="providers">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="providers">Providers</h2>
+            <p>Start free, pay or self-host when ready.</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Provider</th><th>Cost</th><th>What you need</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>mock</code></td>
+                  <td>Free</td>
+                  <td>Nothing — the default for development.</td>
+                </tr>
+                <tr>
+                  <td><code>kling</code></td>
+                  <td>Paid (prepaid packages)</td>
+                  <td>No hardware; legacy API implemented, new API on the roadmap.</td>
+                </tr>
+                <tr>
+                  <td><code>comfyui</code> (LTX)</td>
+                  <td>Electricity / GPU</td>
+                  <td>Powerful NVIDIA GPU (officially 32 GB+ VRAM); depends on your workflow.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            Choosing guide: <code>docs/providers/README.md</code>. Adding a new backend:
+            <code>docs/adding-a-provider.md</code>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="start">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="start">Quick start</h2>
+            <p>Three minutes, nothing to spend.</p>
+          </div>
+          <pre><code>cd backend
+npm install
+cp .env.example .env   # set APP_KEY; PROVIDER=mock is the default
+npm run dev            # requires Node &gt;= 22.13</code></pre>
+          <p class="note">
+            Try it: <code>curl -H "X-App-Key: &lt;your key&gt;" -F prompt="astronaut cat" localhost:3000/jobs</code>
+            and poll <code>/jobs/&lt;id&gt;</code>. Then open <code>android/</code> in Android
+            Studio.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="status">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="status">Project status</h2>
+            <p>Working prototype, honestly scoped.</p>
+          </div>
+          <p class="note">
+            Tested: full API with mock, ComfyUI provider against a simulated server, user
+            isolation, signed links and seed repeat/variations. Not yet tested against real
+            services: live Kling, the real Anthropic enhancer, a real ComfyUI server,
+            Docker/Caddy and the Android build. See
+            <a href="https://github.com/thepaneb/paneb-videogen/blob/main/docs/roadmap.md" rel="noopener">docs/roadmap.md</a>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="links">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="links">Links</h2>
+          </div>
+          <ul class="link-grid">
+            <li>
+              <a href="https://github.com/thepaneb/paneb-videogen" rel="noopener"
+                >Source &amp; setup<span>github.com/thepaneb/paneb-videogen</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/paneb-videogen/blob/main/docs/architecture.md" rel="noopener"
+                >Architecture<span>API, worker, providers and storage</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/paneb-videogen/blob/main/docs/roadmap.md" rel="noopener"
+                >Roadmap<span>What is tested and what comes next</span></a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/thepaneb/paneb-videogen/issues" rel="noopener"
+                >Issues<span>Report a provider or API problem</span></a
+              >
+            </li>
+          </ul>
+          <p class="note">
+            Prototype: the license is still to be defined before publishing — see the
+            repository README.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© 2026 Gil Cleber Barboza · <a href="/">All projects</a></p>
+        <nav class="footer-links" aria-label="Project links">
+          <a href="https://github.com/thepaneb/paneb-videogen" rel="noopener">GitHub</a>
+          <a href="https://github.com/thepaneb/paneb-videogen#readme" rel="noopener">README</a>
+          <a href="https://www.linkedin.com/in/gilcleber/" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
