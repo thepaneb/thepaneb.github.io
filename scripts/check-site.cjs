@@ -9,6 +9,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { execFileSync } = require('node:child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const BASE = 'https://thepaneb.github.io';
@@ -90,12 +91,26 @@ function checkXmlDate(value, label) {
   if (value > today) fail(`${label}: lastmod no futuro (${value} > ${today})`);
 }
 
+// Data da última mudança commitada de um arquivo (YYYY-MM-DD).
+// Retorna null sem histórico git (ex.: checkout raso) ou sem git.
+function gitLastChange(fileRel) {
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', fileRel], {
+      cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'],
+    }).toString().trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(out) ? out : null;
+  } catch {
+    return null;
+  }
+}
+
 // ── required files ────────────────────────────────────────────────────
 
 for (const file of [
   '.nojekyll',
   'favicon.ico',
   'robots.txt',
+  'llms.txt',
   'sitemap.xml',
   'sitemap-hub.xml',
   'assets/styles.css',
@@ -286,6 +301,50 @@ if (exists('sitemap-hub.xml')) {
   if (unique.size !== locs.length) fail('sitemap-hub.xml: locs duplicados');
   for (const url of pageSet) if (!unique.has(url)) fail(`sitemap-hub.xml: falta ${url}`);
   for (const url of unique) if (!pageSet.has(url)) fail(`sitemap-hub.xml: URL sem página (${url})`);
+}
+
+// ── ItemList (hub) vs sitemap + lastmod vs git ──────────────────────
+// Garante que toda página do hub esteja no ItemList da home (foi assim
+// que a falta do paneb-videogen passou despercebida) e que nenhum lastmod
+// esteja mais antigo que a última mudança commitada da página.
+
+const indexHtml = exists('index.html') ? read('index.html') : '';
+const itemListUrls = new Set();
+for (const script of indexHtml.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)) {
+  let data;
+  try {
+    data = JSON.parse(script[1]);
+  } catch {
+    continue; // validade do JSON já checada por página
+  }
+  for (const node of Array.isArray(data) ? data : [data]) {
+    if (node['@type'] === 'ItemList' && Array.isArray(node.itemListElement)) {
+      for (const item of node.itemListElement) if (item.url) itemListUrls.add(item.url);
+    }
+  }
+}
+
+const KNOWN_EXTERNAL = new Set([...EXTERNAL_PATHS].map((p) => `${BASE}${p}`));
+for (const url of itemListUrls) {
+  if (!KNOWN_EXTERNAL.has(url) && !pageSet.has(url)) fail(`index.html: ItemList sem página (${url})`);
+}
+
+if (exists('sitemap-hub.xml')) {
+  const xml = read('sitemap-hub.xml');
+  for (const block of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const loc = block[1].match(/<loc>([^<]+)<\/loc>/);
+    const lastmod = block[1].match(/<lastmod>([^<]+)<\/lastmod>/);
+    if (!loc) continue;
+    if (loc[1] === `${BASE}/`) continue; // a home é o ProfilePage, não item da lista
+    if (!itemListUrls.has(loc[1])) fail(`index.html: ItemList sem ${loc[1]}`);
+    if (lastmod) {
+      const rel = `${loc[1].slice(BASE.length).replace(/^\//, '')}index.html`;
+      const gitDate = gitLastChange(rel);
+      if (gitDate && gitDate > lastmod[1]) {
+        fail(`sitemap-hub.xml: lastmod desatualizado para ${loc[1]} (conteúdo de ${gitDate})`);
+      }
+    }
+  }
 }
 
 // ── report ────────────────────────────────────────────────────────────

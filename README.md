@@ -15,6 +15,7 @@ The project site for **utPLSQL Test Runner** is deployed separately from the
 index.html              hub
 404.html                not found (noindex)
 robots.txt              authoritative robots for the host
+llms.txt                portfolio summary for AI crawlers
 sitemap.xml             sitemap index
 sitemap-hub.xml         hub + project landing URLs
 .nojekyll               serve files as-is (no Jekyll)
@@ -26,6 +27,8 @@ base-robyn/             landing
 assets/                 shared CSS, avatar, favicon and social cards
 assets/og/src/          SVG sources for the 1200×627 cards
 scripts/check-site.cjs  structural checks (no dependencies)
+scripts/render-og.cjs   renders assets/og/src/*.svg to assets/og/*.png
+.github/workflows/      site-check (push/PR) and IndexNow (post-deploy)
 ```
 
 ## Adding a project
@@ -36,7 +39,7 @@ scripts/check-site.cjs  structural checks (no dependencies)
 3. Add the card to `index.html` and the URL to `sitemap.xml` (as a new child
    sitemap, if the project has its own Pages site) or `sitemap-hub.xml`.
 4. Add a 1200×627 card to `assets/og/<slug>.png` and its SVG source to
-   `assets/og/src/`.
+   `assets/og/src/` (generate the PNG with `node scripts/render-og.cjs`).
 5. Run `node scripts/check-site.cjs`.
 
 Slugs are kebab-case even when the repository uses underscores
@@ -79,6 +82,11 @@ and publishes the static files. `.nojekyll` keeps the files untouched.
 ## Social cards
 
 The PNGs in `assets/og/` are generated from the SVGs in `assets/og/src/` with
-`@resvg/resvg-js` (the same renderer used by the utPLSQL LinkedIn cards). Keep
-the SVG source next to the PNG so a card can be regenerated without guessing
-the layout.
+`@resvg/resvg-js` (the same renderer used by the utPLSQL LinkedIn cards and the
+vscode-utplsql social preview). Keep the SVG source next to the PNG so a card
+can be regenerated without guessing the layout.
+
+```sh
+npm install --no-save @resvg/resvg-js   # no package.json in this repo by design
+node scripts/render-og.cjs              # renders every src/*.svg to og/*.png
+```
