@@ -15,7 +15,7 @@ const ROOT = path.resolve(__dirname, '..');
 const BASE = 'https://thepaneb.github.io';
 const INDEXNOW_KEY = 'ba3b4edc519041308f1dc227c70163f1';
 const SKIP_DIRS = new Set(['.git', '.github', 'assets', 'scripts', 'node_modules']);
-const EXTERNAL_PATHS = new Set(['/vscode-utplsql/']);
+const EXTERNAL_PATHS = new Set(['/vscode-utplsql/', '/isis-report-lib/']);
 const today = new Date().toISOString().slice(0, 10);
 
 const errors = [];
