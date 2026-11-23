@@ -91,14 +91,17 @@ function checkXmlDate(value, label) {
   if (value > today) fail(`${label}: lastmod no futuro (${value} > ${today})`);
 }
 
-// Data da última mudança commitada de um arquivo (YYYY-MM-DD).
-// Retorna null sem histórico git (ex.: checkout raso) ou sem git.
+// Data da última mudança commitada de um arquivo, em segundos Unix (UTC).
+// Retorna null sem histórico útil (repo raso, sem git, arquivo sem histórico).
 function gitLastChange(fileRel) {
   try {
-    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', fileRel], {
+    if (execFileSync('git', ['rev-parse', '--is-shallow-repository'], {
+      cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'],
+    }).toString().trim() === 'true') return null;
+    const out = execFileSync('git', ['log', '-1', '--format=%ct', '--', fileRel], {
       cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'],
     }).toString().trim();
-    return /^\d{4}-\d{2}-\d{2}$/.test(out) ? out : null;
+    return /^\d+$/.test(out) ? Number(out) : null;
   } catch {
     return null;
   }
@@ -339,9 +342,11 @@ if (exists('sitemap-hub.xml')) {
     if (!itemListUrls.has(loc[1])) fail(`index.html: ItemList sem ${loc[1]}`);
     if (lastmod) {
       const rel = `${loc[1].slice(BASE.length).replace(/^\//, '')}index.html`;
-      const gitDate = gitLastChange(rel);
-      if (gitDate && gitDate > lastmod[1]) {
-        fail(`sitemap-hub.xml: lastmod desatualizado para ${loc[1]} (conteúdo de ${gitDate})`);
+      const gitTs = gitLastChange(rel);
+      // lastmod cobre o dia inteiro (UTC); só acusa conteúdo estritamente mais novo
+      if (gitTs && gitTs > Date.parse(`${lastmod[1]}T23:59:59Z`) / 1000) {
+        const contentDate = new Date(gitTs * 1000).toISOString().slice(0, 10);
+        fail(`sitemap-hub.xml: lastmod desatualizado para ${loc[1]} (conteúdo de ${contentDate})`);
       }
     }
   }
