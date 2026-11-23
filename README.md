@@ -19,7 +19,6 @@ llms.txt                portfolio summary for AI crawlers
 sitemap.xml             sitemap index
 sitemap-hub.xml         hub + project landing URLs
 .nojekyll               serve files as-is (no Jekyll)
-isis-report-lib/        landing
 isis-report/            landing
 paneb-videogen/         landing
 base-flask/             landing
