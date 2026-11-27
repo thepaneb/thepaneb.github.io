@@ -16,6 +16,7 @@ index.html              hub
 404.html                not found (noindex)
 robots.txt              authoritative robots for the host
 llms.txt                portfolio summary for AI crawlers
+LICENSE                 MIT
 sitemap.xml             sitemap index
 sitemap-hub.xml         hub + project landing URLs
 .nojekyll               serve files as-is (no Jekyll)
@@ -26,8 +27,9 @@ base-robyn/             landing
 assets/                 shared CSS, avatar, favicon and social cards
 assets/og/src/          SVG sources for the 1200×627 cards
 scripts/check-site.cjs  structural checks (no dependencies)
+scripts/sync-lastmod.cjs syncs sitemap lastmod with git commit dates
 scripts/render-og.cjs   renders assets/og/src/*.svg to assets/og/*.png
-.github/workflows/      site-check (push/PR) and IndexNow (post-deploy)
+.github/workflows/      site-check (push/PR), external links (weekly) and IndexNow (post-deploy)
 ```
 
 ## Adding a project
@@ -50,13 +52,14 @@ Slugs are kebab-case even when the repository uses underscores
   (for example `/vscode-utplsql/robots.txt`) are ignored by Googlebot; the root
   file is the authoritative one.
 - `sitemap.xml` is a **sitemap index**. It references `sitemap-hub.xml` for the
-  pages in this repository and the project sitemap deployed by
-  `vscode-utplsql`.
+  pages in this repository and the project sitemaps deployed by
+  `isis-report-lib` and `vscode-utplsql`.
 - Every indexable page must have a self-referencing canonical, a meta
   description, Open Graph/Twitter tags, JSON-LD and a local `og:image`.
 - `404.html` must stay `noindex` and link back to `/`.
 - Update `lastmod` when the page content changes; never set it to a future
-  date.
+  date. `node scripts/sync-lastmod.cjs` derives it from the last commit that
+  touched each page (UTC), so commit the page first and then run it.
 - Submit `https://thepaneb.github.io/sitemap.xml` in Search Console/Bing
   Webmaster Tools under the **root** property, not the project subpath.
 - Google Search Console HTML verification files (`google<token>.html`) live at
@@ -71,7 +74,8 @@ node scripts/check-site.cjs
 
 The script checks required files, titles/descriptions, canonical URLs, OG and
 Twitter tags, JSON-LD, local links, `robots.txt`, the sitemap index and that
-`sitemap-hub.xml` covers exactly the indexable pages.
+`sitemap-hub.xml` covers exactly the indexable pages. It also enforces 1200×627
+social cards and a `lastmod` that is not older than the page's last commit.
 
 ## Deploy
 
@@ -89,3 +93,8 @@ can be regenerated without guessing the layout.
 npm install --no-save @resvg/resvg-js   # no package.json in this repo by design
 node scripts/render-og.cjs              # renders every src/*.svg to og/*.png
 ```
+
+## License
+
+MIT — see [LICENSE](LICENSE). The project landing pages and the hub content are
+part of this repository; the projects themselves keep their own licenses.

@@ -111,6 +111,7 @@ function gitLastChange(fileRel) {
 
 for (const file of [
   '.nojekyll',
+  'LICENSE',
   'favicon.ico',
   'robots.txt',
   'llms.txt',
@@ -137,6 +138,21 @@ for (const file of fs.readdirSync(ROOT).filter((name) => /^google[0-9a-f]+\.html
   const text = read(file).trim();
   const expected = `google-site-verification: ${file}`;
   if (text !== expected) fail(`${file}: conteúdo de verificação do Google inválido`);
+}
+
+// ── social cards ──────────────────────────────────────────────────────
+// Todo card em assets/og/ deve ser PNG 1200x627 (og:image do hub e das landings).
+
+const ogDir = path.join(ROOT, 'assets', 'og');
+if (fs.existsSync(ogDir)) {
+  for (const entry of fs.readdirSync(ogDir).filter((name) => name.endsWith('.png'))) {
+    const png = fs.readFileSync(path.join(ogDir, entry));
+    const width = png.readUInt32BE(16);
+    const height = png.readUInt32BE(20);
+    if (width !== 1200 || height !== 627) {
+      fail(`assets/og/${entry}: ${width}x${height} (esperado 1200x627)`);
+    }
+  }
 }
 
 // ── pages ─────────────────────────────────────────────────────────────
@@ -263,7 +279,11 @@ if (exists('sitemap.xml')) {
   if (!xml.includes('<sitemapindex')) fail('sitemap.xml: não é um sitemapindex');
   if (xml.includes('<urlset')) fail('sitemap.xml: não deve conter urlset');
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  for (const required of [`${BASE}/sitemap-hub.xml`, `${BASE}/vscode-utplsql/sitemap.xml`]) {
+  for (const required of [
+    `${BASE}/sitemap-hub.xml`,
+    `${BASE}/isis-report-lib/sitemap.xml`,
+    `${BASE}/vscode-utplsql/sitemap.xml`,
+  ]) {
     if (!locs.includes(required)) fail(`sitemap.xml: falta ${required}`);
   }
   for (const block of xml.matchAll(/<sitemap>([\s\S]*?)<\/sitemap>/g)) {
@@ -338,8 +358,9 @@ if (exists('sitemap-hub.xml')) {
     const loc = block[1].match(/<loc>([^<]+)<\/loc>/);
     const lastmod = block[1].match(/<lastmod>([^<]+)<\/lastmod>/);
     if (!loc) continue;
-    if (loc[1] === `${BASE}/`) continue; // a home é o ProfilePage, não item da lista
-    if (!itemListUrls.has(loc[1])) fail(`index.html: ItemList sem ${loc[1]}`);
+    const isHome = loc[1] === `${BASE}/`;
+    // a home é o ProfilePage, não item da lista; as demais páginas entram no ItemList
+    if (!isHome && !itemListUrls.has(loc[1])) fail(`index.html: ItemList sem ${loc[1]}`);
     if (lastmod) {
       const rel = `${loc[1].slice(BASE.length).replace(/^\//, '')}index.html`;
       const gitTs = gitLastChange(rel);
