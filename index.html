@@ -190,45 +190,75 @@
       <section class="section" id="projects">
         <div class="wrap">
           <div class="section-head">
-            <h2>Featured project</h2>
-            <p>Native Oracle tooling, without leaving the editor.</p>
+            <h2>Featured projects</h2>
+            <p>Oracle tooling in the editor, Python reporting from the terminal.</p>
           </div>
 
-          <article class="featured">
-            <div>
-              <p class="kicker">VS Code extension · TypeScript · MIT</p>
-              <h3>utPLSQL Test Runner</h3>
-              <p>
-                Run, debug and cover utPLSQL (Oracle PL/SQL) tests in VS Code's native Test Explorer.
-                Oracle-direct execution via <code>node-oracledb</code>, visual coverage,
-                jump-to-failure and a PL/SQL debugger.
-              </p>
-              <ul class="chips" aria-label="utPLSQL Test Runner highlights">
-                <li class="chip">26 UI languages</li>
-                <li class="chip">Oracle 12.1+</li>
-                <li class="chip">thin &amp; thick</li>
-                <li class="chip">Test Explorer</li>
-              </ul>
-              <p class="actions">
-                <a class="btn primary" href="/vscode-utplsql/">Open project site</a>
-                <a
-                  class="btn ghost"
-                  href="https://marketplace.visualstudio.com/items?itemName=paneb.vscode-utplsql"
-                  rel="noopener"
-                  >VS Code Marketplace</a
-                >
-              </p>
-            </div>
-            <div class="featured-visual">
-              <img
-                src="/assets/vscode-utplsql-icon.png"
-                alt="utPLSQL Test Runner icon"
-                width="88"
-                height="88"
-              />
-              <span>Independent community project</span>
-            </div>
-          </article>
+          <div class="featured-pair">
+            <article class="featured">
+              <div>
+                <p class="kicker">VS Code extension · TypeScript · MIT</p>
+                <h3>utPLSQL Test Runner</h3>
+                <p>
+                  Run, debug and cover utPLSQL (Oracle PL/SQL) tests in VS Code's native Test
+                  Explorer. Oracle-direct execution via <code>node-oracledb</code>, visual coverage,
+                  jump-to-failure and a PL/SQL debugger.
+                </p>
+                <ul class="chips" aria-label="utPLSQL Test Runner highlights">
+                  <li class="chip">26 UI languages</li>
+                  <li class="chip">Oracle 12.1+</li>
+                  <li class="chip">thin &amp; thick</li>
+                  <li class="chip">Test Explorer</li>
+                </ul>
+                <p class="actions">
+                  <a class="btn primary" href="/vscode-utplsql/">Open project site</a>
+                  <a
+                    class="btn ghost"
+                    href="https://marketplace.visualstudio.com/items?itemName=paneb.vscode-utplsql"
+                    rel="noopener"
+                    >VS Code Marketplace</a
+                  >
+                </p>
+              </div>
+              <div class="featured-visual">
+                <img
+                  src="/assets/vscode-utplsql-icon.png"
+                  alt="utPLSQL Test Runner icon"
+                  width="88"
+                  height="88"
+                />
+                <span>Independent community project</span>
+              </div>
+            </article>
+
+            <article class="featured isis-lib">
+              <div>
+                <p class="kicker">Python library · PyPI · Documentation</p>
+                <h3>isis-report-lib</h3>
+                <p>
+                  Tabular PDF reports from Python — hierarchical layouts, Jinja2 rendering and
+                  Playwright PDF. Documented with standards, ASVS 4.0.3 mapping and a pt-BR
+                  quickstart.
+                </p>
+                <ul class="chips" aria-label="isis-report-lib highlights">
+                  <li class="chip">ASVS 4.0.3</li>
+                  <li class="chip">pt-BR docs</li>
+                  <li class="chip">sync &amp; async</li>
+                  <li class="chip">no server</li>
+                </ul>
+                <p class="actions">
+                  <a class="btn primary" href="/isis-report-lib/">Read the docs</a>
+                  <a class="btn ghost" href="https://pypi.org/project/isis-report-lib/" rel="noopener"
+                    >PyPI</a
+                  >
+                </p>
+              </div>
+              <div class="featured-visual">
+                <div class="featured-mark" aria-hidden="true">IR</div>
+                <span>Documentation site</span>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -240,17 +270,6 @@
           </div>
 
           <div class="cards">
-            <a class="card isis-lib" href="/isis-report-lib/">
-              <span class="mark" aria-hidden="true">IR</span>
-              <p class="kicker">Python library · PyPI · Docs</p>
-              <h3>isis-report-lib</h3>
-              <p>
-                Tabular PDF reports from Python — hierarchical layouts, Jinja2 rendering and
-                Playwright PDF. Full docs with standards, ASVS mapping and roadmap.
-              </p>
-              <span class="more">Read the docs →</span>
-            </a>
-
             <a class="card isis-service" href="/isis-report/">
               <span class="mark" aria-hidden="true">IR</span>
               <p class="kicker">Python service · Robyn</p>

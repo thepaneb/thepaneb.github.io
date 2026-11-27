@@ -457,6 +457,55 @@ h3 {
   color: var(--muted);
 }
 
+/* Dupla em destaque: dois cards lado a lado, coluna única dentro de cada um */
+
+.featured-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+.featured-pair .featured {
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.featured-pair .featured-visual {
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.featured.isis-lib {
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --accent-soft: #e6f4f1;
+}
+
+.featured-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 88px;
+  height: 88px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+@media (prefers-color-scheme: dark) {
+  .featured.isis-lib {
+    --accent: #5eead4;
+    --accent-ink: #0b0f14;
+    --accent-soft: #0d2b28;
+  }
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -488,9 +537,6 @@ h3 {
 .card.utplsql {
   --card-accent: #0b6bcb;
 }
-.card.isis-lib {
-  --card-accent: #0f766e;
-}
 .card.isis-service {
   --card-accent: #6d28d9;
 }
@@ -513,9 +559,6 @@ h3 {
 @media (prefers-color-scheme: dark) {
   .card.utplsql {
     --card-accent: #6cb6ff;
-  }
-  .card.isis-lib {
-    --card-accent: #5eead4;
   }
   .card.isis-service {
     --card-accent: #c4b5fd;
