@@ -7,8 +7,8 @@
 ## Projects
 
 - Hub (all projects): https://thepaneb.github.io/
-- utPLSQL Test Runner — VS Code extension for Oracle PL/SQL tests: https://thepaneb.github.io/vscode-utplsql/
-- isis-report-lib — Python library for tabular PDF reports: https://thepaneb.github.io/isis-report-lib/
+- utPLSQL Test Runner — VS Code extension for Oracle PL/SQL tests (documentation site): https://thepaneb.github.io/vscode-utplsql/
+- isis-report-lib — Python library for tabular PDF reports (documentation site: standards, ASVS, roadmap, API, pt-BR quickstart): https://thepaneb.github.io/isis-report-lib/
 - isis_report — async microservice for PDF reports (Robyn): https://thepaneb.github.io/isis-report/
 - Samsung Remote — desktop & Android remote for Samsung (Tizen) TVs: https://thepaneb.github.io/samsung-remote/
 - My Tuya Home — local-first dashboard for Tuya/SmartLife plugs: https://thepaneb.github.io/my-tuya-home/
