@@ -482,22 +482,6 @@ h3 {
   --accent-soft: #e6f4f1;
 }
 
-.featured-mark {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 88px;
-  height: 88px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-family: var(--mono);
-  font-size: 1.5rem;
-  font-weight: 700;
-  box-shadow: var(--shadow);
-}
-
 @media (prefers-color-scheme: dark) {
   .featured.isis-lib {
     --accent: #5eead4;
